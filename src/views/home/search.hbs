@@ -1,0 +1,91 @@
+<main>
+  <article>
+
+    <!-- 
+        - #SEARCH
+      -->
+
+    <section class="top-rated">
+      <div class="container">
+
+        <p class="section-subtitle">Search</p>
+
+        <h2 class="h2 section-title">What are you looking for <strong>Today</strong> ?</h2>
+        <form method="GET">
+          <div class="src">
+            <input type="search" id="search-input" name="name" value="{{search.name}}" placeholder="Search...">
+
+
+            <button type="submit" class="search-btn vertical">&nbsp;Search
+              <!-- <ion-icon name="search-outline" role="img" class="md hydrated" aria-label="search outline"></ion-icon>-->
+            </button>
+
+
+          </div>
+
+          <div class="filter-container">
+            <select id="category" class="" name="category" value="{{search.category}}">
+              <option value="" disabled selected>Event</option>
+              <option value="">All</option>
+              <option value="Theater">Theater</option>
+              <option value="Concert">Concert</option>
+            </select>
+
+            <select id="city" class="" name="location" value="{{search.location}}">
+              <option value="" disabled selected>Location</option>
+              <option value="">All</option>
+              <option value="sofia">Sofia</option>
+              <option value="Varna">Varna</option>
+              <option value="Bourgas">Bourgas</option>
+              <option value="Plovdiv">Plovdiv</option>
+              <option value="london">London</option>
+            </select>
+
+            <select id="year" class="" name="date" value="{{search.date}}">
+              <option value="" disabled selected>Year</option>
+              <option value="all">All</option>
+              <option value="2023">2025</option>
+              <option value="2024">2024</option>
+              <option value="2023">2023</option>
+            </select>
+
+
+          </div>
+
+
+        </form>
+
+
+      </div>
+
+      </div>
+
+
+
+      <div class="container">
+
+        <p class="section-subtitle">latest</p>
+
+        <h2 class="h2 section-title">Music & Theather <strong>Performances<strong></h2>
+
+        <ul class="movies-list">
+
+
+          {{#each events}}
+          {{> eventCardDash}}
+          {{!-- </ul> --}}
+        {{else}}
+
+
+        <div style="color:white; text-align: center;" section-subtitle>
+          <h1>There are no results found.</h1>
+        </div>
+        {{/each}}
+
+        </ul>
+
+      </div>
+    </section>
+
+  </article>
+</main>

@@ -1,0 +1,43 @@
+<li>
+    <div class="movie-card">
+
+        <a href="/events/{{_id}}/details">
+            <figure class="card-banner">
+                <img src="{{imageUrl}}" alt="">
+            </figure>
+        </a>
+
+        <div class="title-wrapper">
+            <a href="/events/{{_id}}/details">
+                <h3 class="card-title">{{name}}</h3>
+            </a>
+            <div class="location-badge">
+                <ion-icon name="location"></ion-icon>&nbsp;{{location}}
+            </div>
+
+        </div>
+
+        <div class="badge badge-outline">
+
+            <div class="date-time">
+                <div>
+                    <ion-icon name="calendar-outline"></ion-icon>
+
+                    <time datetime="">{{date}}</time>
+                </div>
+
+                <div class="duration">
+                    <ion-icon name="time-outline"></ion-icon>
+
+                    <time datetime="">{{duration}} min</time>
+                </div>
+
+                <div class="rating">
+                    <ion-icon name="star"></ion-icon>
+
+                    <data>{{rating}}</data>
+                </div>
+            </div>
+
+        </div>
+</li>

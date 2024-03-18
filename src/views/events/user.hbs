@@ -1,0 +1,38 @@
+<main>
+  <article>
+
+    <!-- 
+        - #TOP RATED
+      -->
+
+    <section class="top-rated performances">
+      <div class="container">
+
+        <p class="section-subtitle">Events</p>
+
+        <h2 class="h2 section-title">Theater & Music <strong>Performances</strong></h2>
+        {{#if cityEvents}}
+        <h2>in</h2>
+        <h2>{{cityEvents.location}}{{/if}}</h2>
+
+        <ul class="movies-list">
+              
+
+          {{#if cityEvents}}
+          {{#each cityEvents}}
+          {{> eventCardDash}}
+          {{/each}}
+          {{else}}
+          <h2 class="h2 section-title">There are no upcomming theather events!<h2>
+              {{/if}}
+
+
+        </ul>
+
+
+      </div>
+    </section>
+
+    
+  </article>
+</main>

@@ -1,0 +1,38 @@
+<main>
+  <article>
+
+    <!-- 
+        - #TOP RATED
+      -->
+
+    <section class="top-rated performances">
+      <div class="container">
+
+        <p class="section-subtitle">Events</p>
+
+        <h2 class="h2 section-title">Theater & Music <strong>Performances</strong>{{#if cityEvents}} <h2 class="h2 section-title" style='text-transform: capitalize'>{{city}}</h2>{{/if}}</h2>
+ 
+
+        <ul class="movies-list">
+
+          {{#if latestEvents}}
+          {{#each latestEvents}}
+          {{> eventCardDash}}
+          {{/each}}
+          {{else if cityEvents}}
+          {{#each cityEvents}}
+          {{> eventCardDash}}
+          {{/each}}
+          {{else}}
+          <h2 class="h2 section-title">There are no upcomming events!<h2>
+          {{/if}}
+
+        </ul>
+
+      </div>
+    </section>
+
+
+  </article>
+</main>
+<script type="module" src="/js/geoLocation.js"></script>

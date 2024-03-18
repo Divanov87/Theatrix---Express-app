@@ -1,0 +1,202 @@
+<main>
+  <article>
+
+    <!-- 
+        - #MOVIE DETAIL
+      -->
+
+    <section class="movie-detail">
+      <!-- <section class="movie-detail detail-mask" style='background: url("./assets/images/4.jpg") center top/cover; background-attachment: fixed;'> -->
+
+      <p class="section-subtitle">Events</p>
+
+      <h2 class="h2 section-title">{{category}}<strong> performance</strong></h2>
+      <div class="container">
+
+        <figure class="movie-detail-banner">
+          <img src="{{imageUrl}}" alt="{{name}}">
+
+        </figure>
+
+        <div class="movie-detail-content">
+
+          <p class="detail-subtitle">{{genre}}</p>
+
+          <h1 class="h1 detail-title">
+            {{name}}
+          </h1>
+
+          <div class="meta-wrapper">
+
+
+
+            <div class="date-time">
+
+              <div>
+                <ion-icon name="location-sharp"></ion-icon>
+                <time datetime="">{{location}}</time>
+              </div>
+              |
+              <div>
+                <ion-icon name="calendar-outline"></ion-icon>
+                <time datetime="">{{date}}</time>
+              </div>
+              |
+              <div>
+                <ion-icon name="time-outline"></ion-icon>
+                <time datetime="">{{time}} PM</time>
+              </div>
+              |
+              <div>
+                <ion-icon name="timer-outline"></ion-icon>
+                <time datetime="">{{duration}} min</time>
+              </div>
+              |
+              <div class="ganre-wrapper">
+                <div class="badge badge-fill">{{genre}}</div>
+              </div>
+              |
+              <div class="badge-wrapper">
+                <div class="badge badge-outline">{{restriction}}+</div>
+              </div>
+
+            </div>
+
+          </div>
+
+          <p class="storyline">
+            {{description}}
+          </p>
+
+          {{#if user}}
+          <div class="details-actions">
+            <button class="share" id="shareButton">
+              <ion-icon name="share-social-outline"></ion-icon>
+              <span>Share</span>
+            </button>
+            {{!-- {{#if isOwner}} --}}
+            {{#if isAdmin}}
+            {{#if isPinned}}
+            <button class="share">
+              <ion-icon name="star" style="color:rgb(212, 151, 20);"></ion-icon>
+              <a href="/events/{{_id}}/unpin">Pinned</a>
+            </button>
+            {{else}}
+            <a href="/events/{{_id}}/pin">
+              <button class="share">
+                <ion-icon name="star-outline"></ion-icon>
+                Pin
+              </button>
+            </a>
+            {{/if}}
+            <button class="btn btn-primary">
+              <a href="/events/{{_id}}/edit">Edit</a>
+            </button>
+            <button class="btn btn-primary">
+              <a href="/events/{{_id}}/delete">Delete</a>
+            </button>
+            {{else}}
+            {{#if isLiked}}
+            <button class="share">
+              <ion-icon name="heart" style="color:red;"></ion-icon>
+              <span>{{likesList.length}}</span>
+            </button>
+            {{else}}
+            <a href="/events/{{_id}}/like">
+              <button class="share">
+                <ion-icon name="heart-outline"></ion-icon>
+                Like
+              </button>
+            </a>
+            {{/if}}
+
+            <a href="javascript:void(0)">
+              <button class="share">
+                <ion-icon name="ticket-outline"></ion-icon>
+                {{ticketsLeft}}
+              </button>
+            </a>
+            {{#if ticketsLeft}}
+            <button class="btn btn-primary">
+              <a href="/events/{{_id}}/buy">Buy Tickets</a>
+            </button>
+            {{else}}
+            <button class="sold-out">
+              Sold out
+            </button>
+            {{/if}}
+            {{!-- {{/if}} --}}
+
+          </div>
+          {{/if}}
+          {{/if}}
+
+        </div>
+
+      </div>
+    </section>
+
+
+
+
+
+    <!-- 
+        - #UPCOMING
+      -->
+
+    <section class="upcoming">
+      <div class="container">
+
+        <div class="flex-wrapper">
+
+          <div class="title-wrapper">
+            <p class="section-subtitle">discover latest</p>
+
+            <h2 class="h2 section-title">Theater & Music <strong>Events</strong></h2>
+          </div>
+
+          <ul class="filter-list">
+
+            <li>
+              <button class="filter-btn">Varna</button>
+            </li>
+
+            <li>
+              <button class="filter-btn">Bourgas</button>
+            </li>
+
+            <li>
+              <button class="filter-btn">Plovdiv</button>
+            </li>
+
+            <li>
+              <button class="filter-btn">Sofia</button>
+            </li>
+
+            <li>
+              <button class="filter-btn">London</button>
+            </li>
+
+          </ul>
+
+        </div>
+
+        {{#if latestEvents}}
+        <ul class="movies-list  has-scrollbar">
+          {{#each latestEvents}}
+          {{> eventCardDash}}
+          {{/each}}
+          {{else}}
+    <h2 class="h2 section-title">There are no latest events!<h2></h2>
+        </ul>
+          
+            {{/if}}
+         
+          
+
+      </div>
+    </section>
+
+  </article>
+</main>
+<script type="module" src="/js/share.js"></script>

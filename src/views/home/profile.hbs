@@ -1,0 +1,90 @@
+<article>
+
+  <section class="movie-detail">
+
+    <p class="section-subtitle">Profile</p>
+
+    <h2 class="h2 section-title">Who are, <strong>we</strong>?</h2>
+    <div class="container-reg-log-edit">
+
+      <div class="wrapper about-us">
+        </br></br></br>
+        <h1>{{#if user}}Welcome, <strong>{{username}}</strong>{{/if}}</h1>
+{{!-- edit user info here? --}}
+        <article class="profile-card-info"> 
+            <h2>Username: {{username}}</h2>
+            <h3>Address: {{address}}</h3>
+            <!--If the user has shared publications, separate their titles with a comma and a space (, )-->
+            {{#if sharedTitles}}
+            <h4>Titles of shared posts by the user: {{sharedTitles}}</h4>
+            <!--If not display:-->
+            {{else}}
+            <h4>Titles of shared posts by the user: Not yet.</h4>
+            {{/if}}
+            {{#if boughtPosts}}
+            <h4>Titles of bought posts by the user: {{boughtPosts}}</h4>
+            {{else}}
+            <h4>Titles of bought posts by the user: Not yet.</h4>
+            {{/if}}
+            {{#if publicationTitles}}
+            <!--If the user has created their own publications, separate their titles with a comma and a space (, )-->
+            <h4>Titles of which the user is the author: {{publicationTitles}}</h4>
+            <!--If not display:-->
+            {{else}}
+            <h4>Titles of which the user is the author: Not yet.</h4>
+            {{/if}}
+        </article>
+
+        <div class="container">
+          <div class="content">
+            </br>
+            </br></br>
+            <p>Welcome to Theatrix, dear {{#if user}}{{username}}{{/if}} – your ultimate destination for discovering, experiencing, and immersing yourself in
+              the vibrant world of live entertainment. Whether you're a seasoned theater enthusiast, a music aficionado,
+              or simply someone looking to add a touch of magic to your evenings, Theatrix has you covered. With a
+              diverse array of events ranging from Broadway shows to intimate concerts, we're here to ignite your
+              passion for the performing arts and create unforgettable memories.</p>
+            </br></br>
+            <h2>Discovering Events Made Effortless</h2></br>
+            <p>Gone are the days of endless searching and countless tabs open on your browser. With Theatrix, finding
+              the perfect event is a breeze. Our intuitive interface allows you to browse through a vast selection of
+              performances, conveniently sorted by genre, date, location, and more. Whether you're in the mood for a
+              classical ballet, a gripping drama, or a night of stand-up comedy, our platform puts the world of
+              entertainment at your fingertips.</p>
+            </br></br>
+            <h2>Securing Your Tickets Hassle-Free</h2></br>
+            <p>Once you've found the event that piques your interest, securing your tickets is quick and easy with
+              Theatrix. Say goodbye to long queues and last-minute rushes – our seamless booking system ensures that you
+              can reserve your seats with just a few clicks. Whether you prefer the front row or the balcony, we offer a
+              range of seating options to suit every preference and budget. Plus, with our secure payment gateway, you
+              can rest assured that your transactions are safe and protected.</p>
+            </br></br>
+            <h2>Immersing Yourself in the Experience</h2></br>
+            <p>But Theatrix is more than just a ticketing platform – it's a gateway to unforgettable experiences. From
+              the moment you purchase your tickets to the final curtain call, we're dedicated to ensuring that your
+              journey is nothing short of magical. Explore our interactive event guides, insider tips, and
+              behind-the-scenes content to enhance your understanding and appreciation of the performances you love.
+              Connect with fellow enthusiasts, share your thoughts and experiences, and become part of a vibrant
+              community united by a passion for the arts.</p>
+            </br></br>
+            <h2>Supporting Artists and Creators</h2></br>
+            <p>At Theatrix, we believe in the power of creativity to inspire, uplift, and transform lives. That's why
+              we're committed to supporting artists and creators from around the world, providing them with a platform
+              to showcase their talents and reach new audiences. Every ticket purchased through our platform directly
+              contributes to the livelihood of performers, production crews, and cultural institutions, ensuring that
+              the magic of live entertainment continues to thrive for generations to come.</p>
+            </br></br>
+            <h2>Join the Theatrix Community Today</h2></br>
+            <p>Whether you're a seasoned theatergoer or a newcomer to the world of live entertainment, there's something
+              for everyone at Theatrix. Join us on a journey of discovery, exploration, and celebration as we embark on
+              an exhilarating adventure through the world of performing arts. Sign up for free today and unlock access
+              to exclusive offers, insider insights, and a world of unforgettable experiences. With Theatrix, the show
+              never stops – so what are you waiting for? Start your adventure today!</p>
+            </br></br>
+          </div>
+        </div>
+      </div>
+  </section>
+
+
+</article>

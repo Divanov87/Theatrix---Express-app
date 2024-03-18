@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#e60a15">
+  {{!-- <title>Theatrix - Discover Events, Buy Tickets, & Have Fun!</title> --}}
+  <title>{{title}}</title>
+
+  <link rel="icon" href="/images/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="/css/style.css">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orestbida/cookieconsent@3.0.0/dist/cookieconsent.css">
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+</head>
+
+<body id="top">
+
+  {{#if error}}
+  <div class="errorContainer">
+    <p>{{error}}</p>
+  </div>
+  {{/if}}
+
+  <!-- 
+    - #HEADER
+  -->
+
+  <header class="header" data-header>
+
+    <div class="container">
+
+      <div class="overlay" data-overlay></div>
+
+      <a href="/" class="logo">
+        <img src="/images/logo.png" alt="Theatrix logo">
+      </a>
+
+      <div class="header-actions">
+
+        <!-- <button class="search-btn">
+          <ion-icon name="search-outline"></ion-icon>
+        </button> -->
+
+        <div class="lang-wrapper">
+          <label for="language">
+            <ion-icon name="globe-outline"></ion-icon>
+          </label>
+
+          <select name="language" id="language">
+            <option value="en">EN</option>
+            <option value="bg">BG</option>
+          </select>
+        </div>
+        {{#unless user}}
+        <a href="/auth/register" class="navbar-link">
+          <button class="btn btn-primary">Sign in</button>
+        </a>
+        {{/unless}}
+      </div>
+
+      <button class="menu-open-btn" data-menu-open-btn>
+        <!-- <ion-icon name="ellipsis-vertical"></ion-icon> -->
+        <ion-icon name="reorder-three"></ion-icon>
+      </button>
+
+      <nav class="navbar" data-navbar>
+
+        <div class="navbar-top">
+
+          <a href="/" class="logo">
+            <img src="/images/logo.png" alt="Theatrix logo">
+          </a>
+
+          <button class="menu-close-btn" data-menu-close-btn>
+            <ion-icon name="close-outline"></ion-icon>
+          </button>
+
+        </div>
+
+        <ul class="navbar-list">
+
+          {{#unless user}}
+
+         <li>
+            <a href="/" class="navbar-link">Home</a>
+          </li>
+
+          <li>
+            <div class="dropdown">
+              <button class="dropbtn">
+                <a href="/events/" class="navbar-link">Events <i class='bx bxs-chevron-down'></i></a>
+              </button>
+
+              <div class="dropdown-content">
+                <a href="/events/theater" class="navbar-link">Theater</a>
+                <a href="/events/concerts" class="navbar-link">Concerts</a>
+              </div>
+          </li>
+
+          <li>
+            <a href="/search" class="navbar-link">Search</a>
+          </li>
+
+          {{/unless}}
+
+          {{#if user}}
+          <li>
+            <a href="/events/" class="navbar-link">My Events</a>
+          </li>
+          <li>
+            <a href="/search" class="navbar-link">Search</a>
+          </li>
+          <li>
+            <a href="/events/theater" class="navbar-link">Theater</a>
+          </li>
+          <li>
+            <a href="/events/concerts" class="navbar-link">Concerts</a>
+          </li>
+          {{#if isUser}}
+          <li>
+            <a href="/profile" class="navbar-link">Profile</a>
+          </li>
+          {{/if}}
+          {{#if isAdmin}}
+          <li>
+            <a href="/events/add" class="navbar-link">Add Event</a>
+          </li>
+          {{/if}}
+          <li>
+            <a href="/auth/logout" class="navbar-link">Logout</a>
+          </li>
+          {{else}}
+          <li>
+            <a href="/auth/register" class="navbar-link">Register</a>
+          </li>
+          <li>
+            <a href="/auth/login" class="navbar-link">Login</a>
+          </li>
+          {{/if}}
+          <li>
+            <a href="/contacts" class="navbar-link">Contacts</a>
+          </li>
+          <li>
+            <a href="/about" class="navbar-link">About</a>
+          </li>
+        </ul>
+
+        <ul class="navbar-social-list">
+
+
+          <li>
+            <a href="#" class="navbar-social-link">
+              <ion-icon name="logo-facebook"></ion-icon>
+            </a>
+          </li>
+
+          <li>
+            <a href="#" class="navbar-social-link">
+              <ion-icon name="logo-instagram"></ion-icon>
+            </a>
+          </li>
+
+          <li>
+            <a href="#" class="navbar-social-link">
+              <ion-icon name="logo-youtube"></ion-icon>
+            </a>
+          </li>
+
+        </ul>
+
+      </nav>
+
+    </div>
+  </header>
+
+
+  <main>
+    {{{body}}}
+  </main>
+
+  <!-- 
+    - #FOOTER
+  -->
+
+  <footer class="footer">
+
+    <!-- 
+      - #CTA
+    -->
+
+    <section class="cta">
+      <div class="container">
+
+        <div class="title-wrapper">
+          <h2 class="cta-title">Subscribe for our <strong>FREE</strong> bulletin</h2>
+
+          <p class="cta-text">
+            Get weekly updates about hottest performances and events, exclusive discounts, & more!
+          </p>
+        </div>
+
+        <form action="" methond="POST" class="cta-form">
+          <input type="email" id="email" name="email" required placeholder="Enter your email" class="email-field">
+
+          <button type="submit" class="cta-form-btn"><span>Get started</span></button>
+        </form>
+
+      </div>
+    </section>
+
+    <div class="footer-top">
+      <div class="container">
+
+        <div class="footer-brand-wrapper">
+
+          <a href="/" class="logo">
+            <img src="/images/logo2.png" alt="Theathrix logo">
+          </a>
+
+          <ul class="footer-list">
+
+
+            <li>
+              <a href="/" class="navbar-link">Home</a>
+            </li>
+
+          <li>
+            <a href="/events/theater" class="navbar-link">Theater</a>
+          </li>
+
+          <li>
+            <a href="/events/concerts" class="navbar-link">Concerts</a>
+          </li>
+
+          <li>
+            <a href="/contacts" class="navbar-link">Contacts</a>
+          </li>
+
+            <li>
+              <a href="/about" class="footer-link">About</a>
+            </li>
+
+
+          </ul>
+
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="quicklink-wrapper">
+
+          <ul class="quicklink-list">
+
+            <li>
+              <a href="#" class="quicklink-link">Faq</a>
+            </li>
+
+            <li>
+              <a href="#" class="quicklink-link">Help center</a>
+            </li>
+
+            <li>
+              <a href="#" class="quicklink-link">Terms of use</a>
+            </li>
+
+            <li>
+              <a href="#" class="quicklink-link">Privacy</a>
+            </li>
+
+          </ul>
+
+          <ul class="social-list">
+
+
+            <li>
+              <a href="https://fb.com/theatrix" class="navbar-social-link">
+                <ion-icon name="logo-facebook"></ion-icon>
+              </a>
+            </li>
+
+            <li>
+              <a href="https://instagram.com/theatrix" class="navbar-social-link">
+                <ion-icon name="logo-instagram"></ion-icon>
+              </a>
+            </li>
+
+
+            <li>
+              <a href="https://youtube.com/theatrix" class="navbar-social-link">
+                <ion-icon name="logo-youtube"></ion-icon>
+              </a>
+            </li>
+
+
+          </ul>
+
+        </div>
+
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div class="container">
+
+        <p class="copyright">
+          &copy; 2024. A <strong>Dimitar.Ivanov87</strong> @ SoftUni, Project. All Rights Reserved
+        </p>
+
+        <!-- <img src="/assets/images/footer-bottom-img.png" alt="Online banking companies logo" class="footer-bottom-img"> -->
+
+      </div>
+    </div>
+
+  </footer>
+
+
+
+
+
+  <!-- 
+    - #GO TO TOP
+  -->
+
+  <a href="#top" class="go-top" data-go-top>
+    <ion-icon name="chevron-up"></ion-icon>
+  </a>
+
+
+
+
+
+  <!-- 
+    - custom js link
+  -->
+  <script src="/js/script.js"></script>
+
+  <!-- 
+    - ionicon link
+  -->
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+  <script type="module" src="/js/cookieconsent-config.js"></script>
+
+</body>
+
+</html>

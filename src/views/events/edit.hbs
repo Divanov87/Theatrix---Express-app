@@ -1,0 +1,123 @@
+
+
+
+
+  <main>
+    <article>
+
+      <!-- 
+        - #MOVIE DETAIL
+      -->
+
+      <section class="movie-detail">
+
+        <p class="section-subtitle">Edit Event</p>
+
+        <h2 class="h2 section-title">Event details</h2>
+        <div class="container-reg-log-edit">
+
+          <!-- <figure class="movie-detail-banner">
+            <img src="./assets/images/4.jpg" alt="Free guy movie poster"> -->
+
+          <!-- <button class="play-btn">
+              <ion-icon name="play-circle-outline"></ion-icon>
+            </button> -->
+
+          <!-- </figure> -->
+
+
+
+
+
+
+
+          <div class="wrapper">
+            <form method="POST">
+              <h1>Edit <strong>Record</strong></h1>
+
+              <div class="input-box">
+                <input type="text" id="name" name="name" placeholder="Title" minlength="2" value="{{name}}" required>
+              </div>
+
+              <div class="input-box">
+                <input type="url" id="imageUrl" name="imageUrl" placeholder="Cover (https://...)" value="{{imageUrl}}"  required>
+              </div>
+
+              <div class="input-box">
+                <input type="number" id="tickets" name="tickets" placeholder="Tickets" step="1" min="1" max="500" value="{{tickets}}" required>
+              </div>
+
+              <div class="input-box">
+                <input type="string" id="genre" name="genre" placeholder="Genre" minlength="4" maxlength="12" value="{{genre}}" required>
+              </div>
+
+              <div class="input-box">
+                <input type="number" id="restriction" name="restriction" placeholder="Restriction (0, 12, 16, 18)" step="2" min="0" max="18" value="{{restriction}}" required>
+              </div>
+
+              <div class="input-box">
+                <input type="number" id="duration" name="duration" placeholder="Duration" step="1" min="60" max="180" value="{{duration}}" required>
+              </div>
+
+              <div class="input-box">
+                <input type="number" id="rating" name="rating" placeholder="Rating" step="0.1" min="0" max="10" value="{{rating}}" required>
+              </div>
+
+              <div class="input-box">
+                <input type="date" id="date" name="date" placeholder="Date" value="{{date}}" required>
+              </div>
+
+              <div class="input-box">
+                <input type="time" id="time" name="time" placeholder="Time" value="{{time}}" required>
+              </div>
+
+              <script>
+                document.getElementById("date").min = new Date().toISOString().split("T")[0];
+              </script>
+
+              <div class="input-box">
+                <input type="text" name="location" placeholder="Location" minlength="3" value="{{location}}" required>
+              </div>
+
+              <div class="input-box">
+                <select id="category" name="category" value="{{category}}">
+                  <option value="" selected disabled hidden>Category</option>
+                  <option value="Concert">Concert</option>
+                  <option value="Theater">Theater</option>
+                </select>
+              </div>
+
+              <div class="input-box">
+                <textarea type="text" name="description" placeholder="Description..." minlength="10" maxlength="100" cols="8" rows="8">{{description}}</textarea>
+              </div>
+
+              <div class="input-box">
+                {{error}}
+              </div>
+              <div class="input-box">
+              
+              </div>
+              <button type="submit" class="btn">Edit</button>
+            </form>
+
+
+
+
+
+            <!-- 
+                <a href="./assets/images/movie-4.png" download class="download-btn">
+                  <span>Download</span>
+    
+                  <ion-icon name="download-outline"></ion-icon>
+                </a> -->
+
+          </div>
+
+        </div>
+      </section>
+
+
+    </article>
+  </main>
+
+

@@ -1,0 +1,368 @@
+<article>
+
+  <!-- 
+      - #HERO
+    -->
+
+  <section class="hero">
+    <div class="container">
+
+      <div class="hero-content">
+
+        <p class="hero-subtitle">Theatrix</p>
+
+        <h1 class="h1 hero-title">
+          Discover <strong>Events</strong>, Buy <strong>Tickets</strong>, & More.
+        </h1>
+
+        <div class="meta-wrapper">
+
+          <div class="badge-wrapper">
+            <div class="badge badge-fill">VISA</div>
+            <div class="badge badge-outline">EU</div>
+          </div>
+
+
+
+          <div class="ganre-wrapper">
+            <ion-icon name="location-sharp"></ion-icon><a href="#">Varna</a> |
+            <a href="#">Bourgas</a> |
+            <a href="#">Plovdiv</a> |
+            <a href="#">Sofia</a> |
+            <a href="#">London</a>
+          </div>
+
+          <!-- <div class="date-time">
+              <div>
+                <ion-icon name="calendar-outline"></ion-icon>
+                <time datetime="2022">2022</time>
+              </div>
+
+              <div>
+                <ion-icon name="time-outline"></ion-icon>
+                <time datetime="PT128M">128 min</time>
+              </div>
+
+            </div> -->
+
+        </div>
+
+
+        <button class="btn btn-primary">
+          <ion-icon name="search-outline"></ion-icon>
+          <a href="/events" target="">
+
+
+            <span>Browse now</span>
+          </a>
+        </button>
+
+        <br />
+        <form action="/search" method="GET" class="src">
+          <input type="text" id="search-input" name="name" placeholder="Search...">
+          <button type="submit" class="search-btn vertical">&nbsp;
+            <ion-icon name="search-outline" role="img" class="md hydrated" aria-label="search outline"></ion-icon>
+          </button>
+        </form>
+
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- 
+      - #SERVICE
+    -->
+
+  <section class="service">
+    <div class="container">
+
+      <div class="service-banner">
+        <figure>
+          <img src="./images/banner-left5.jpg" alt="">
+        </figure>
+
+        <!-- <a href="./assets/images/service-banner.jpg" download class="service-btn">
+            <span>Download</span>
+
+            <ion-icon name="download-outline"></ion-icon>
+          </a> -->
+      </div>
+
+      <div class="service-content">
+
+        <p class="service-subtitle">Our 3-steps to paradise:</p>
+
+        <h2 class="h2 service-title">Discover <strong>thousands</strong> of performances and <strong>events</strong>
+        </h2>
+
+        <p class="service-text">
+          Embark on a journey of endless entertainment as you explore and discover thousands of captivating performances
+          and events on our website!
+        </p>
+
+        <ul class="service-list">
+
+          <li>
+            <div class="service-card">
+
+              <div class="card-icon">
+                <ion-icon name="ticket"></ion-icon>
+              </div>
+
+              <div class="card-content">
+                <h3 class="h3 card-title">2. Buy tickets</h3>
+
+                <p class="card-text">
+                  Secure your front-row seat to unforgettable moments - buy tickets now and be part of the excitement
+                  with thousands of upcoming performances and events!
+                </p>
+              </div>
+
+            </div>
+          </li>
+
+          <li>
+            <div class="service-card">
+
+              <div class="card-icon">
+                <ion-icon name="accessibility"></ion-icon>
+              </div>
+
+              <div class="card-content">
+                <h3 class="h3 card-title">3. Enjoy</h3>
+
+                <p class="card-text">
+                  Sit back, relax, and enjoy the spectacular performances and events unfold before you, creating moments
+                  of pure delight and unforgettable memories.
+                </p>
+              </div>
+
+            </div>
+          </li>
+
+        </ul>
+
+      </div>
+
+    </div>
+  </section>
+
+  <section class="top-rated">
+
+    <div class="container">
+
+      <p class="section-subtitle">latest</p>
+
+      <h2 class="h2 section-title">Pinned <strong>Events<strong></h2>
+
+      {{#if latestPins}}
+      <ul class="movies-list">
+        {{!-- <ul class="filter-list"></ul> --}}
+
+
+
+        {{#each latestPins}}
+        {{> eventCardDash}}
+        {{/each}}
+        {{else}}
+
+
+
+      </ul>
+      <h2 class="h2 section-title">There are no upcomming music events!<h2>
+          {{/if}}
+
+    </div>
+  </section>
+
+  <section class="upcoming">
+    <div class="container">
+
+      <div class="flex-wrapper">
+
+        <div class="title-wrapper">
+          <p class="section-subtitle">latest</p>
+
+          <h2 class="h2 section-title">Top Rated <strong>Events</strong>{{#if topRatedEventsLogged}} in <b style="text-transform: capitalize">{{city}}</b>{{/if}}</h2>
+        </div>
+
+        <ul class="filter-list">
+
+          <li>
+            <button class="filter-btn">Varna</button>
+          </li>
+
+          <li>
+            <button class="filter-btn">Bourgas</button>
+          </li>
+
+          <li>
+            <button class="filter-btn">Plovdiv</button>
+          </li>
+
+          <li>
+            <button class="filter-btn">Sofia</button>
+          </li>
+
+          <li>
+            <button class="filter-btn">London</button>
+          </li>
+
+        </ul>
+
+      </div>
+
+
+
+
+      <ul class="movies-list  has-scrollbar">
+        {{#if topRatedEvents}}
+        {{#each topRatedEvents}}
+        {{> eventCardDash}}
+        {{/each}}
+        {{else if topRatedEventsLogged}}
+        {{#each topRatedEventsLogged}}
+        {{> eventCardDash}}
+        {{/each}}
+        {{else}}
+        <h2 class="h2 section-title">There are no upcomming music events!<h2>
+            {{/if}}
+      </ul>
+
+    </div>
+  </section>
+
+
+  <!-- 
+      - #UPCOMING
+    -->
+
+  <section class="upcoming">
+    <div class="container">
+
+      <div class="flex-wrapper">
+
+        <div class="title-wrapper">
+          <p class="section-subtitle">discover latest in your town</p>
+
+          <h2 class="h2 section-title">Latest <strong>Performances</strong>{{#if theaterEventsLogged}} in <b style="text-transform: capitalize">{{city}}</b>{{/if}}</h2>
+        </div>
+
+        <ul class="filter-list">
+
+          <li>
+            <button class="filter-btn">Varna</button>
+          </li>
+
+          <li>
+            <button class="filter-btn">Bourgas</button>
+          </li>
+
+          <li>
+            <button class="filter-btn">Plovdiv</button>
+          </li>
+
+          <li>
+            <button class="filter-btn">Sofia</button>
+          </li>
+
+          <li>
+            <button class="filter-btn">London</button>
+          </li>
+
+        </ul>
+
+      </div>
+
+
+
+
+      <ul class="movies-list  has-scrollbar">
+
+        {{#if theaterEvents}}
+        {{#each theaterEvents}}
+        {{> eventCardDash}}
+        {{/each}}
+        {{else if theaterEventsLogged}}
+        {{#each theaterEventsLogged}}
+        {{> eventCardDash}}
+        {{/each}}
+        {{else}}
+        <h2 class="h2 section-title">There are no upcomming theather events!<h2>
+            {{/if}}
+
+
+      </ul>
+
+    </div>
+  </section>
+
+
+  <!-- 
+      - #UPCOMING
+    -->
+
+  <section class="upcoming">
+    <div class="container">
+
+      <div class="flex-wrapper">
+
+        <div class="title-wrapper">
+          <p class="section-subtitle">discover latest in your town</p>
+
+          <h2 class="h2 section-title">Latest <strong>Concerts</strong>{{#if concertEventsLogged}} in <b style="text-transform: capitalize">{{city}}</b>{{/if}}</h2>
+        </div>
+
+        <ul class="filter-list">
+
+          <li>
+            <button class="filter-btn">Varna</button>
+          </li>
+
+          <li>
+            <button class="filter-btn">Bourgas</button>
+          </li>
+
+          <li>
+            <button class="filter-btn">Plovdiv</button>
+          </li>
+
+          <li>
+            <button class="filter-btn">Sofia</button>
+          </li>
+
+          <li>
+            <button class="filter-btn">London</button>
+          </li>
+
+        </ul>
+
+      </div>
+
+
+
+
+      <ul class="movies-list  has-scrollbar">
+
+        {{#if concertEvents}}
+        {{#each concertEvents}}
+        {{> eventCardDash}}
+        {{/each}}
+        {{else if concertEventsLogged}}
+        {{#each concertEventsLogged}}
+        {{> eventCardDash}}
+        {{/each}}
+        {{else}}
+        <h2 class="h2 section-title">There are no upcomming music events!<h2>
+            {{/if}}
+
+
+      </ul>
+
+    </div>
+  </section>
+
+</article>

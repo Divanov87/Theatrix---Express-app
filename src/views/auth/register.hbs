@@ -1,0 +1,37 @@
+<article>
+  <section class="movie-detail">
+    <p class="section-subtitle">Register</p>
+    <h2 class="h2 section-title">Please, fill up your <strong>details</strong>:</h2>
+    <div class="container-reg-log-edit">
+      <div class="wrapper">
+        <form method="POST">
+          <h1>Register</h1>
+          <div class="input-box">
+            <input type="text" name="username" placeholder="Username" value="{{username}}" required>
+            <i class='bx bxs-user'></i>
+          </div>
+          <div class="input-box">
+            <input type="password" name="password" placeholder="Password" required>
+            <i class='bx bxs-lock-alt'></i>
+          </div>
+          <div class="input-box">
+            <input type="password" name="repeatPassword" placeholder="Repeat password" required>
+            <i class='bx bxs-lock-alt'></i>
+          </div>
+          <div class="input-box">
+            <input type="email" name="email" placeholder="Email" value="{{email}}" required email>
+            <i class='bx bx-mail-send'></i>
+          </div>
+          <div class="input-box">
+            <input type="text" name="city" placeholder="City" value="{{city}}" required>
+            <i class='bx bx-location-plus'></i>
+          </div>
+          <button type="submit" class="btn">Register</button>
+          <div class="register-link">
+            <p><strong>Already have an account? <a href="/auth/login">Login</a></strong></p>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+</article>
