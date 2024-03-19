@@ -1,4 +1,4 @@
-exports.SERVER_NAME = 'Theatrix7';
+exports.SERVER_NAME = 'Theatrix';
 exports.PORT = 3000;
 exports.DB_CONNECTION = `mongodb://127.0.0.1:27017/${this.SERVER_NAME}DB`;
 exports.SALTS = 10; // default - 10
