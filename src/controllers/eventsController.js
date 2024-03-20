@@ -309,8 +309,8 @@ router.get('/:eventId/details', async (req, res) => {
 
         res.render('events/details', { ...eventsData, isOwner, isLiked, isBuyed, isPinned, ticketsLeft, latestEvents,  title: 'Details page' });
     } catch (err) {
-        res.status(400).render(`events/${req.params.eventId}`, { error: getErr(err) });
-        // res.status(400).render('events/details', { error: getErr(err) });
+        // res.status(400).render(`events/${req.params.eventId}/details`, { error: getErr(err) });
+        res.status(400).render('404', { error: getErr(err) });
     }
 });
 

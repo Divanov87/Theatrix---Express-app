@@ -9,3 +9,4 @@ exports.USER_MIN_STRENGTH = 3;
 exports.PASS_MIN_STRENGTH = 8;
 exports.CITY_MIN_STRENGTH = 3;
 exports.MAX_STRENGTH = 21;
+exports.ADMIN_IP_ADDRESS = "192.168.1.11"

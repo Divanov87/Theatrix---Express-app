@@ -58,7 +58,7 @@ router.get('/about', async (req, res) => {
 
 
 router.get('/profile', isAuth, async (req, res) => {
-    const user = await eventService.find(req.user._id).populate('bought').populate('liked').lean(); //.populate('shares')
+    const user = await eventsService.find(req.user._id).populate('bought').populate('liked').lean(); //.populate('shares')
     const likes = user.liked.map(x => x.name).join(', ');
     // const publicationTitles = user.myPublications.map(x => x.title).join(', ');
     // const sharedTitles = user.shares.map(x => x.title).join(', ');
