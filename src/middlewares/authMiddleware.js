@@ -19,11 +19,11 @@ exports.authHandler = (req, res, next) => {
 
             console.log(decodedToken)
             if (decodedToken.role == 'admin'){
-                console.log('yes');
+                console.log('Logged in as Admin');
 
 
             } else if (decodedToken.role == 'user') {
-                console.log('no');
+                console.log('Logged in as User');
 
             }
             return next();

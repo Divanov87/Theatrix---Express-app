@@ -16,7 +16,6 @@ router.post('/login', isGuest, async (req, res) => {
     console.log(req.body)
     const { username_email, password } = req.body;
     const userIp = req.ip.toString().replace('::ffff:', '');
-    const role = req.socket.remoteAddress == ADMIN_IP_ADDRESS || userIp === "127.0.0.1" ? 'admin' : 'user';
 
     try {
         const user = await authService.login(username_email, password, userIp);
