@@ -180,11 +180,16 @@ Before you begin, ensure you have met the following requirements:
 </div>
 <br />
 
-### Notes
+### How to set yourself as Admin:
 
-<h2>Registering from external ip makes you User***</h2>
 
-<h2>Registering from -- 127.0.0.1-- makes you Admin***</h2>
+<p>» Set your LAN ip in environments config file</p>
+<p>» Register from that LAN ip address</p>
+
+or
+
+<p>» Register from 127.0.0.1</p>
+
 
 <br />
 
