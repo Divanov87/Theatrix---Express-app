@@ -5,7 +5,6 @@ const { SERVER_NAME, PORT } = require('./configs/envVariables');
 const routes = require('./routes');
 const { initDatabases } = require('./configs/initDatabases');
 const { authHandler } = require('./middlewares/authMiddleware');
-const cors = require("cors");
 
 const app = express();
 
@@ -13,8 +12,6 @@ app.engine('.hbs', handlebars.engine({extname: '.hbs'}));
 app.set('view engine', '.hbs');
 app.set('views', 'src/views');
 
-
-app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use('/', express.static('public'));
