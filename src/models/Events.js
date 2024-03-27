@@ -51,7 +51,7 @@ const eventsSchema = new mongoose.Schema({
     },
     location: {
         type: String,
-        lowercase: true,
+        // lowercase: true,
         required: [true, 'Location is required'],
         minLength: 3,
     },
