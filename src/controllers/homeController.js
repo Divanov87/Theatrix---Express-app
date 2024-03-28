@@ -24,22 +24,23 @@ router.get('/', async (req, res) => {
         const latestPins = await eventsService.getPinned();
 
         const topRatedEvents = await eventsService.getEventsSortedByRating();
-    
+
         const theaterEvents = await eventsService.getEventsByCategory('Theater');
-    
+
         const concertEvents = await eventsService.getEventsByCategory('Concert');
 
-         res.render('home', { title: 'Theatrix - Discover Events, Buy Tickets, & Have Fun!', latestPins, topRatedEvents, theaterEvents, concertEvents })
+        res.render('home', { title: 'Theatrix - Discover Events, Buy Tickets, & Have Fun!', latestPins, topRatedEvents, theaterEvents, concertEvents })
 
     }
 
-   
+
 });
 
-router.get('/search', isAuth, async (req, res) => {
+
+router.get('/search', async (req, res) => {
     const search = req.query;
     const events = await eventsService.search(search)//.lean();
-    console.table(req.query)
+    console.log(req.query)
     res.render('home/search', { title: 'Search Page', events, search });
 });
 
@@ -48,12 +49,12 @@ router.get('/search', isAuth, async (req, res) => {
 // });
 
 router.get('/contacts', async (req, res) => {
-    res.render('home/contacts', {title: 'Contacts Page'})
+    res.render('home/contacts', { title: 'Contacts Page' })
 });
 
 
 router.get('/about', async (req, res) => {
-    res.render('home/about', {title: 'About Page'})
+    res.render('home/about', { title: 'About Page' })
 });
 
 
