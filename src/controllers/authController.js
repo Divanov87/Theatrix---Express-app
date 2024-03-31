@@ -35,12 +35,15 @@ router.post('/login', isGuest, async (req, res) => {
 
 router.get('/register', isGuest, (req, res) => {
     res.render('auth/register', { title: 'Register Page' });
+    const userIp = (req.ip || req.socket.remoteAddress).toString().replace('::ffff:', '');
+    const role = userIp === ADMIN_IP_ADDRESS ? 'admin' : 'user';
+    console.log(role)
 });
 router.post('/register', isGuest, async (req, res) => {
     console.log(req.body);
     const { username, password, repeatPassword, email, city } = req.body;
     const userIp = (req.ip || req.socket.remoteAddress).toString().replace('::ffff:', '');
-    const role = userIp == ADMIN_IP_ADDRESS || "127.0.0.1" ? 'admin' : 'user';
+    const role = userIp === ADMIN_IP_ADDRESS ? 'admin' : 'user';
 
     try {
         const user = await authService.register({ username, password, repeatPassword, email, city, role, userIp });
