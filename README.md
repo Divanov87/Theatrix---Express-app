@@ -186,10 +186,6 @@ Before you begin, ensure you have met the following requirements:
 <p>» Set your LAN ip in environments config file</p>
 <p>» Register from that LAN ip address</p>
 
-or
-
-<p>» Register from 127.0.0.1</p>
-
 
 <br />
 
