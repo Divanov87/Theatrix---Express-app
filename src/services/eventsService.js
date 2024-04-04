@@ -141,8 +141,11 @@ exports.search = async (search) => {
     if (search.location) {
       query = query.where('location', new RegExp(search.location, 'i'));
     }
+    // if (search.date) {
+    //   query = query.where('date', new RegExp(search.date, 'i'));
+    // }
     if (search.date) {
-      query = query.where('date', new RegExp(search.date, 'i'));
+      query = query.where('date').equals(search.date);
     }
     if (search.rating) {
       query = query.where('rating', new RegExp(search.rating, 'i'));
