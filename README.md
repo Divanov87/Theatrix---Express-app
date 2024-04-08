@@ -1,8 +1,8 @@
 <div align="center">
   
-  ![GitHub repo size](https://img.shields.io/github/repo-size/Divanov87/Theatrix---HTML-Template)
-  ![GitHub stars](https://img.shields.io/github/stars/Divanov87/Theatrix---HTML-Template?style=social)
-  ![GitHub forks](https://img.shields.io/github/forks/Divanov87/Theatrix---HTML-Template?style=social)
+  ![GitHub repo size](https://img.shields.io/github/repo-size/Divanov87/Theatrix---Express-app)
+  ![GitHub stars](https://img.shields.io/github/stars/Divanov87/Theatrix---Express-app?style=social)
+  ![GitHub forks](https://img.shields.io/github/forks/Divanov87/Theatrix---Express-app?style=social)
 
   <br />
   <br />
